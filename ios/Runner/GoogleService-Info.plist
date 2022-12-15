@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>157558683835-gg79r9s1m0vv8q9odgkmepcrk4l8n9ue.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.157558683835-gg79r9s1m0vv8q9odgkmepcrk4l8n9ue</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAwLK85gZxqf_gSRbTO-_L-MXYCG6U6TyU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>157558683835</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Stusap</string>
+	<key>PROJECT_ID</key>
+	<string>stusap-34cc1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>stusap-34cc1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:157558683835:ios:2174e115c42c82878ad19e</string>
+</dict>
+</plist>
