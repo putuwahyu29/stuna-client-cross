@@ -1,14 +1,19 @@
-A new Flutter project.
+# Dokumentasi Stuna Client Cross Platform
 
-## Getting Started
+## Tentang
 
-This project is a starting point for a Flutter application.
+Kode ini dibawah lisensi BSD 3-clause. Silahkan baca [Lisensi](LICENSE) untuk informasi lebih lanjut.
 
-A few resources to get you started if this is your first Flutter project:
+Client Cross Platform ini dibuat dengan Dart dan menggunakan framework [Flutter](https://flutter.dev/).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Instalasi
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Silahkan ikuti langkah-langkah berikut untuk menginstall Stuna Client Cross Platform.
+
+1. Clone repository ini
+2. Masuk ke direktori repository
+3. Jalankan perintah `flutter pub get`
+4. Jalankan perintah `flutter run`
+5. Jika ingin melakukan build, jalankan perintah `flutter build`
+
+Terdapat file env yang harus diisi dengan data-data yang dibutuhkan. Silahkan copy file `env` menjadi `.env` dan isi dengan data-data yang dibutuhkan.
