@@ -124,6 +124,7 @@ class AuthService {
       final removeUsername = prefs.remove('username');
       final removePassword = prefs.remove('password');
       final removeToken = prefs.remove('token');
+      prefs.clear();
       // ignore: deprecated_member_use
       prefs.commit();
       return true;

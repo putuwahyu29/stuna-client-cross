@@ -101,7 +101,7 @@ class _ProductPageState extends State<PengumumanPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.pengumuman.judul!,
+                        widget.pengumuman.judul,
                         style: primaryTextStyle.copyWith(
                           fontSize: 20,
                           fontWeight: semiBold,
@@ -160,7 +160,7 @@ class _ProductPageState extends State<PengumumanPage> {
               ),
               Text(
                 DateFormat('dd-MM-yyyy')
-                    .format(widget.pengumuman.updatedAt!)
+                    .format(widget.pengumuman.updatedAt)
                     .toString(),
                 style: primaryTextStyle.copyWith(
                   fontWeight: light,
@@ -190,7 +190,7 @@ class _ProductPageState extends State<PengumumanPage> {
                 height: 12,
               ),
               Text(
-                widget.pengumuman.isi!,
+                widget.pengumuman.isi,
                 style: primaryTextStyle.copyWith(
                   fontWeight: light,
                   fontSize: 14,

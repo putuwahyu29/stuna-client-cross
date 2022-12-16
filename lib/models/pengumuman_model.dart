@@ -1,24 +1,24 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class PengumumanModel {
-  late int? id;
-  late String? judul;
-  late String? isi;
-  late String? excerpt;
-  late DateTime? createdAt;
-  late DateTime? updatedAt;
+  late int id;
+  late String judul;
+  late String isi;
+  late String excerpt;
+  late DateTime createdAt;
+  late DateTime updatedAt;
   late String? gambar;
-  late String? kelasId;
+  late String kelasId;
 
   PengumumanModel({
-    this.id,
-    this.judul,
-    this.isi,
-    this.excerpt,
-    this.createdAt,
-    this.updatedAt,
-    this.gambar,
-    this.kelasId,
+    required this.id,
+    required this.judul,
+    required this.isi,
+    required this.excerpt,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.gambar,
+    required this.kelasId,
   });
 
   PengumumanModel.fromJson(Map<String, dynamic> json) {
@@ -46,5 +46,3 @@ class PengumumanModel {
     };
   }
 }
-
-class UninitializedPengumumanModel extends PengumumanModel {}

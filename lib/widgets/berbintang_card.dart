@@ -54,7 +54,7 @@ class BerbintangCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    pengumuman.judul!,
+                    pengumuman.judul,
                     style: whiteTextStyle.copyWith(
                       fontSize: 16,
                       fontWeight: semiBold,
@@ -62,7 +62,7 @@ class BerbintangCard extends StatelessWidget {
                     maxLines: 2,
                   ),
                   Text(
-                    pengumuman.excerpt!,
+                    pengumuman.excerpt,
                     style: whiteTextStyle.copyWith(
                       fontSize: 14,
                       fontWeight: medium,
@@ -75,6 +75,12 @@ class BerbintangCard extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 berbintangProvider.setPengumuman(pengumuman);
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    backgroundColor: alertColor,
+                    content: const Text(
+                      'Telah dihapus dari Pengumuman Berbintang',
+                      textAlign: TextAlign.center,
+                    )));
               },
               child: Image.asset(
                 'assets/button_star_blue.png',

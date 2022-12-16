@@ -31,7 +31,7 @@ class _SignInPageState extends State<MasukPage> {
         username: usernameController.text,
         password: passwordController.text,
       )) {
-        Navigator.pushNamed(context, '/beranda');
+        Navigator.pushNamed(context, '/');
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: alertColor,

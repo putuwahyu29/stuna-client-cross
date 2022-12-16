@@ -27,9 +27,10 @@ class _ProfilPageState extends State<ProfilPage> {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: infoColor,
             content: const Text(
-              'Keluar Berhasil!',
+              'Berhasil Keluar!',
               textAlign: TextAlign.center,
             )));
+
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: alertColor,

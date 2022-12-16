@@ -6,6 +6,7 @@ import 'package:stuna/providers/pengumuman_provider.dart';
 import 'package:stuna/theme.dart';
 import 'package:stuna/widgets/pengumuman_card.dart';
 import 'package:stuna/widgets/pengumuman_tile.dart';
+import 'package:stuna/models/pengumuman_model.dart';
 
 class BerandaPage extends StatelessWidget {
   const BerandaPage({Key? key}) : super(key: key);
@@ -97,6 +98,18 @@ class BerandaPage extends StatelessWidget {
               SizedBox(
                 width: defaultMargin,
               ),
+              if (pengumumanProvider.pengumumanLimit.length < 1)
+                Center(
+                  child: Container(
+                    child: Text(
+                      'Tidak ada pengumuman yang tersedia',
+                      style: primaryTextStyle.copyWith(
+                        fontSize: 18,
+                        fontWeight: bold,
+                      ),
+                    ),
+                  ),
+                ),
               Row(
                 children: pengumumanProvider.pengumumanLimit
                     .map(

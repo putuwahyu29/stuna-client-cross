@@ -43,7 +43,7 @@ class PengumumanTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  pengumuman.judul!,
+                  pengumuman.judul,
                   style: primaryTextStyle.copyWith(
                     fontSize: 18,
                     fontWeight: semiBold,
@@ -54,7 +54,7 @@ class PengumumanTile extends StatelessWidget {
                   height: 6,
                 ),
                 Text(
-                  pengumuman.excerpt!,
+                  pengumuman.excerpt,
                   style: primaryTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: medium,
@@ -65,7 +65,7 @@ class PengumumanTile extends StatelessWidget {
                   height: 6,
                 ),
                 Text(
-                  "\Diperbarui pada ${DateFormat('dd-MM-yyyy').format(pengumuman.updatedAt!).toString()}",
+                  "\Diperbarui pada ${DateFormat('dd-MM-yyyy').format(pengumuman.updatedAt).toString()}",
                   style: primaryTextStyle.copyWith(
                     fontSize: 12,
                     fontWeight: medium,

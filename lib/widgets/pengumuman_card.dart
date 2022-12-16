@@ -52,7 +52,7 @@ class PengumumanCard extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    pengumuman.judul!,
+                    pengumuman.judul,
                     style: primaryTextStyle.copyWith(
                       fontSize: 18,
                       fontWeight: semiBold,
@@ -63,7 +63,7 @@ class PengumumanCard extends StatelessWidget {
                   const SizedBox(
                     height: 6,
                   ),
-                  Text(pengumuman.excerpt!,
+                  Text(pengumuman.excerpt,
                       style: primaryTextStyle.copyWith(
                           fontSize: 16, fontWeight: medium),
                       maxLines: 2),
@@ -71,7 +71,7 @@ class PengumumanCard extends StatelessWidget {
                     height: 12,
                   ),
                   Text(
-                    "\Diperbarui pada ${DateFormat('dd-MM-yyyy').format(pengumuman.updatedAt!).toString()}",
+                    "\Diperbarui pada ${DateFormat('dd-MM-yyyy').format(pengumuman.updatedAt).toString()}",
                     style: primaryTextStyle.copyWith(
                       fontSize: 12,
                     ),

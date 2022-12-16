@@ -37,7 +37,13 @@ class _SignUpPageState extends State<DaftarPage> {
         email: emailController.text,
         password: passwordController.text,
       )) {
-        Navigator.pushNamed(context, '/beranda');
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: infoColor,
+            content: const Text(
+              'Berhasil Daftar!',
+              textAlign: TextAlign.center,
+            )));
+        Navigator.pushNamed(context, '/masuk');
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: alertColor,
@@ -46,7 +52,6 @@ class _SignUpPageState extends State<DaftarPage> {
               textAlign: TextAlign.center,
             )));
       }
-
       setState(() {
         isLoading = false;
       });
