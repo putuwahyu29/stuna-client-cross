@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stuna/models/user_model.dart';
+import 'package:stuna/models/kelas_model.dart';
 import 'package:stuna/providers/auth_provider.dart';
+import 'package:stuna/providers/kelas_provider.dart';
 import 'package:stuna/theme.dart';
 
 class EditProfilPage extends StatelessWidget {
@@ -11,6 +13,13 @@ class EditProfilPage extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
+    KelasProvider kelasProvider = Provider.of<KelasProvider>(context);
+    int valueDropdown;
+    if (user.kelasId == null) {
+      valueDropdown = 0;
+    } else {
+      valueDropdown = int.parse(user.kelasId.toString());
+    }
     TextEditingController usernameController =
         TextEditingController(text: user.username);
 
@@ -31,8 +40,7 @@ class EditProfilPage extends StatelessWidget {
 
     TextEditingController nimController = TextEditingController(text: user.nim);
 
-    TextEditingController kelasIdController =
-        TextEditingController(text: user.kelasId);
+    String kelasIdController = user.kelasId.toString();
 
     handleEditProfile() async {
       if (await authProvider.editProfile(
@@ -43,7 +51,7 @@ class EditProfilPage extends StatelessWidget {
         alamat: alamatController.text,
         noHp: noHpController.text,
         nim: nimController.text,
-        kelasId: kelasIdController.text,
+        kelasId: kelasIdController,
         token: authProvider.user.token!,
       )) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -55,7 +63,7 @@ class EditProfilPage extends StatelessWidget {
             ),
           ),
         );
-        Navigator.pushNamed(context, '/beranda');
+        Navigator.pushNamed(context, '/');
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -263,33 +271,28 @@ class EditProfilPage extends StatelessWidget {
       );
     }
 
-    Widget kelasIdInput() {
+    Widget kelasInput() {
       return Container(
         margin: EdgeInsets.only(top: defaultMargin),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
-            'Kelas ID',
+            'Kelas',
             style: secondaryTextStyle.copyWith(
               fontSize: 12,
             ),
           ),
-          TextFormField(
-            style: primaryTextStyle,
-            controller: kelasIdController,
-            decoration: InputDecoration(
-                hintText: 'Kelas Id Anda',
-                hintStyle: secondaryTextStyle,
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: secondaryColor),
-                )),
-          )
+          DropdownButtonFormField(
+              value: valueDropdown,
+              items: kelasProvider.kelas.map((kelas) {
+                return DropdownMenuItem(
+                  child: Text(kelas.namaKelas),
+                  value: kelas.id,
+                );
+              }).toList(),
+              onChanged: (value) => kelasIdController = value.toString()),
         ]),
       );
     }
-
-    // buat widget untuk input kelas dengan dropdown
-   
-
 
     Widget content() {
       return SingleChildScrollView(
@@ -319,8 +322,9 @@ class EditProfilPage extends StatelessWidget {
             alamatInput(),
             noHpInput(),
             nimInput(),
+            kelasInput(),
             SizedBox(
-              height: 400,
+              height: 300,
             ),
           ],
         ),

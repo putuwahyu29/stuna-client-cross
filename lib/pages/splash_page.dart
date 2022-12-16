@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stuna/providers/auth_provider.dart';
 import 'package:stuna/providers/pengumuman_provider.dart';
+import 'package:stuna/providers/kelas_provider.dart';
 import 'package:stuna/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -43,6 +44,7 @@ class _SplashPageState extends State<SplashPage> {
     if (token != null) {
       await Provider.of<AuthProvider>(context, listen: false)
           .login(username: username, password: password);
+      await Provider.of<KelasProvider>(context, listen: false).getAllKelas();
       pengumumanCheck(kelasId);
     } else {
       Navigator.pushNamed(context, '/masuk');

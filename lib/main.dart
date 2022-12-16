@@ -10,6 +10,7 @@ import 'package:stuna/providers/auth_provider.dart';
 import 'package:stuna/providers/page_provider.dart';
 import 'package:stuna/providers/pengumuman_provider.dart';
 import 'package:stuna/providers/berbintang_provider.dart';
+import 'package:stuna/providers/kelas_provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
@@ -31,6 +32,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => PengumumanProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => KelasProvider(),
         ),
         ChangeNotifierProvider(
           create: (context) => BerbintangProvider(),
