@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stuna/models/pengumuman_model.dart';
@@ -8,7 +7,7 @@ import 'package:intl/intl.dart';
 
 class PengumumanPage extends StatefulWidget {
   final PengumumanModel pengumuman;
-  PengumumanPage(this.pengumuman);
+  const PengumumanPage(this.pengumuman, {super.key});
 
   @override
   State<PengumumanPage> createState() => _ProductPageState();
@@ -23,20 +22,8 @@ class _ProductPageState extends State<PengumumanPage> {
     BerbintangProvider berbintangProvider =
         Provider.of<BerbintangProvider>(context);
 
-    Widget indicator(int index) {
-      return Container(
-        width: currentIndex == index ? 16 : 4,
-        height: 4,
-        margin: const EdgeInsets.symmetric(horizontal: 2),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: currentIndex == index ? primaryColor : Color(0xffC4C4C4),
-        ),
-      );
-    }
 
     Widget header() {
-      int index = -1;
 
       return Column(
         children: [
@@ -74,7 +61,6 @@ class _ProductPageState extends State<PengumumanPage> {
     }
 
     Widget content() {
-      int index = -1;
 
       return Container(
         width: double.infinity,

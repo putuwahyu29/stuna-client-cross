@@ -26,9 +26,7 @@ class PengumumanModel {
     judul = json['judul'];
     isi = json['isi'];
     excerpt = json['excerpt'];
-    gambar = dotenv.env['BASE_URL'].toString() +
-        '/uploads/pengumuman/' +
-        json['gambar'];
+    gambar = '${dotenv.env['BASE_URL']}/uploads/pengumuman/${json['gambar']}';
     kelasId = json['kelas_id'];
     createdAt = DateTime.parse(json['created_at']);
     updatedAt = DateTime.parse(json['updated_at']);

@@ -93,13 +93,13 @@ class _MainPageState extends State<MainPage> {
     Widget body() {
       switch (pageProvider.currentIndex) {
         case 0:
-          return BerandaPage();
+          return const BerandaPage();
         case 1:
-          return BerbintangPage();
+          return const BerbintangPage();
         case 2:
           return ProfilPage();
         default:
-          return BerandaPage();
+          return const BerandaPage();
       }
     }
 

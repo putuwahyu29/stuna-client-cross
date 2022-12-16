@@ -54,7 +54,7 @@ class BerbintangPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Container(
+            SizedBox(
               height: 44,
               child: TextButton(
                 style: TextButton.styleFrom(
@@ -103,7 +103,7 @@ class BerbintangPage extends StatelessWidget {
     return Column(
       children: [
         header(),
-        berbintangProvider.berbintang.length == 0 ? emptyStarred() : content(),
+        berbintangProvider.berbintang.isEmpty ? emptyStarred() : content(),
       ],
     );
   }

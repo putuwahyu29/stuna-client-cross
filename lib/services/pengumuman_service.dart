@@ -9,7 +9,7 @@ class PengumumanService {
 
   Future<List<PengumumanModel>> getPengumumanByKelasIdLimit(
       {required String kelasId}) async {
-    var url = '$apiUrl/pengumuman/limit/' + kelasId;
+    var url = '$apiUrl/pengumuman/limit/$kelasId';
     var headers = {'Content-Type': 'application/json'};
 
     var response = await http.get(Uri.parse(url), headers: headers);
@@ -27,7 +27,7 @@ class PengumumanService {
 
   Future<List<PengumumanModel>> getPengumumanByKelasId(
       {required String kelasId}) async {
-    var url = '$apiUrl/pengumuman/' + kelasId;
+    var url = '$apiUrl/pengumuman/$kelasId';
     var headers = {'Content-Type': 'application/json'};
     var response = await http.get(Uri.parse(url), headers: headers);
     if (response.statusCode == 200) {

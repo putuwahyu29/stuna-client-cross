@@ -6,7 +6,6 @@ import 'package:stuna/providers/pengumuman_provider.dart';
 import 'package:stuna/theme.dart';
 import 'package:stuna/widgets/pengumuman_card.dart';
 import 'package:stuna/widgets/pengumuman_tile.dart';
-import 'package:stuna/models/pengumuman_model.dart';
 
 class BerandaPage extends StatelessWidget {
   const BerandaPage({Key? key}) : super(key: key);
@@ -98,15 +97,13 @@ class BerandaPage extends StatelessWidget {
               SizedBox(
                 width: defaultMargin,
               ),
-              if (pengumumanProvider.pengumumanLimit.length < 1)
+              if (pengumumanProvider.pengumumanLimit.isEmpty)
                 Center(
-                  child: Container(
-                    child: Text(
-                      'Tidak ada pengumuman',
-                      style: primaryTextStyle.copyWith(
-                        fontSize: 17,
-                        fontWeight: bold,
-                      ),
+                  child: Text(
+                    'Tidak ada pengumuman',
+                    style: primaryTextStyle.copyWith(
+                      fontSize: 17,
+                      fontWeight: bold,
                     ),
                   ),
                 ),

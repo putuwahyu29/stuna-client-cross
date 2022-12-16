@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stuna/pages/edit_profil_page.dart';
 import 'package:stuna/pages/home/main_page.dart';
-import 'package:stuna/pages/pengumuman_page.dart';
 import 'package:stuna/pages/masuk_page.dart';
 import 'package:stuna/pages/daftar_page.dart';
 import 'package:stuna/pages/splash_page.dart';
@@ -46,11 +45,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => SplashPage(),
-          '/masuk': (context) => MasukPage(),
-          '/daftar': (context) => DaftarPage(),
-          '/beranda': (context) => MainPage(),
-          '/edit-profil': (context) => EditProfilPage(),
+          '/': (context) => const SplashPage(),
+          '/masuk': (context) => const MasukPage(),
+          '/daftar': (context) => const DaftarPage(),
+          '/beranda': (context) => const MainPage(),
+          '/edit-profil': (context) => const EditProfilPage(),
         },
       ),
     );

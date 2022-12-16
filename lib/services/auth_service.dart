@@ -1,10 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:provider/provider.dart';
 import 'package:stuna/models/user_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:stuna/providers/auth_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
@@ -28,7 +26,7 @@ class AuthService {
     if (response.statusCode == 201) {
       var data = jsonDecode(response.body);
       UserModel user = UserModel.fromJson(data['user']);
-      var token = user.token = 'Bearer ' + data['accessToken'];
+      var token = user.token = 'Bearer${data['accessToken']}';
       final prefs = await SharedPreferences.getInstance();
       prefs.setString('username', username!);
       prefs.setString('password', password!);
@@ -51,7 +49,7 @@ class AuthService {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
       UserModel user = UserModel.fromJson(data['user']);
-      var token = user.token = 'Bearer ' + data['accessToken'];
+      var token = user.token = 'Bearer${data['accessToken']}';
       var kelasId = user.kelasId;
       print('auth service kelas id: $kelasId');
       final prefs = await SharedPreferences.getInstance();
@@ -92,7 +90,7 @@ class AuthService {
       'kelas_id': kelasId,
     });
     var response = await http.put(
-      Uri.parse(url + '/' + username),
+      Uri.parse('$url/$username'),
       headers: headers,
       body: body,
     );
@@ -121,9 +119,6 @@ class AuthService {
     );
     if (response.statusCode == 200) {
       final prefs = await SharedPreferences.getInstance();
-      final removeUsername = prefs.remove('username');
-      final removePassword = prefs.remove('password');
-      final removeToken = prefs.remove('token');
       prefs.clear();
       // ignore: deprecated_member_use
       prefs.commit();

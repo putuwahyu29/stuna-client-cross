@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 
 class PengumumanCard extends StatelessWidget {
   final PengumumanModel pengumuman;
-  PengumumanCard(this.pengumuman);
+  const PengumumanCard(this.pengumuman, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class PengumumanCard extends StatelessWidget {
                     height: 12,
                   ),
                   Text(
-                    "\Diperbarui pada ${DateFormat('dd-MM-yyyy').format(pengumuman.updatedAt).toString()}",
+                    "Diperbarui pada ${DateFormat('dd-MM-yyyy').format(pengumuman.updatedAt).toString()}",
                     style: primaryTextStyle.copyWith(
                       fontSize: 12,
                     ),

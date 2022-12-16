@@ -5,6 +5,8 @@ import 'package:stuna/theme.dart';
 import 'package:stuna/widgets/loading_button.dart';
 
 class MasukPage extends StatefulWidget {
+  const MasukPage({super.key});
+
   @override
   State<MasukPage> createState() => _SignInPageState();
 }
@@ -257,7 +259,7 @@ class _SignInPageState extends State<MasukPage> {
               header(),
               usernameInput(),
               passwordInput(),
-              isLoading ? LoadingButton() : signInButton(),
+              isLoading ? const LoadingButton() : signInButton(),
               const Spacer(),
               footer(),
             ],

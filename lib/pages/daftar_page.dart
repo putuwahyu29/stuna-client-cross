@@ -5,6 +5,8 @@ import 'package:stuna/theme.dart';
 import 'package:stuna/widgets/loading_button.dart';
 
 class DaftarPage extends StatefulWidget {
+  const DaftarPage({super.key});
+
   @override
   State<DaftarPage> createState() => _SignUpPageState();
 }
@@ -384,7 +386,7 @@ class _SignUpPageState extends State<DaftarPage> {
               usernameInput(),
               emailInput(),
               passwordInput(),
-              isLoading ? LoadingButton() : signUpButton(),
+              isLoading ? const LoadingButton() : signUpButton(),
               const Spacer(),
               footer(),
             ],

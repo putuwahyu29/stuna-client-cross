@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stuna/models/user_model.dart';
-import 'package:stuna/models/kelas_model.dart';
 import 'package:stuna/providers/auth_provider.dart';
 import 'package:stuna/providers/kelas_provider.dart';
 import 'package:stuna/theme.dart';
@@ -103,29 +102,6 @@ class EditProfilPage extends StatelessWidget {
       );
     }
 
-    Widget usernameInput() {
-      return Container(
-        margin: EdgeInsets.only(top: defaultMargin),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
-            'Nama Pengguna',
-            style: secondaryTextStyle.copyWith(
-              fontSize: 12,
-            ),
-          ),
-          TextFormField(
-            style: primaryTextStyle,
-            controller: usernameController,
-            decoration: InputDecoration(
-                hintText: 'Nama Pengguna Anda',
-                hintStyle: secondaryTextStyle,
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: secondaryColor),
-                )),
-          )
-        ]),
-      );
-    }
 
     Widget nameInput() {
       return Container(
@@ -285,8 +261,8 @@ class EditProfilPage extends StatelessWidget {
               value: valueDropdown,
               items: kelasProvider.kelas.map((kelas) {
                 return DropdownMenuItem(
-                  child: Text(kelas.namaKelas),
                   value: kelas.id,
+                  child: Text(kelas.namaKelas),
                 );
               }).toList(),
               onChanged: (value) => kelasIdController = value.toString()),
@@ -323,7 +299,7 @@ class EditProfilPage extends StatelessWidget {
             noHpInput(),
             nimInput(),
             kelasInput(),
-            SizedBox(
+            const SizedBox(
               height: 300,
             ),
           ],

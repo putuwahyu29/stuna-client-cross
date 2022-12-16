@@ -7,7 +7,7 @@ import 'package:stuna/theme.dart';
 
 class BerbintangCard extends StatelessWidget {
   final PengumumanModel pengumuman;
-  BerbintangCard(this.pengumuman);
+  const BerbintangCard(this.pengumuman, {super.key});
 
   @override
   Widget build(BuildContext context) {

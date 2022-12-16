@@ -3,11 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:stuna/models/user_model.dart';
 import 'package:stuna/providers/auth_provider.dart';
 import 'package:stuna/theme.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ProfilPage extends StatefulWidget {
+  const ProfilPage({super.key});
+
   @override
   State<ProfilPage> createState() => _ProfilPageState();
 }
@@ -42,7 +42,7 @@ class _ProfilPageState extends State<ProfilPage> {
     }
 
     confirmButtonLogout() {
-      return Container(
+      return SizedBox(
         width: 100,
         height: 44,
         child: TextButton(
@@ -55,7 +55,7 @@ class _ProfilPageState extends State<ProfilPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               isLoading
-                  ? Container(
+                  ? SizedBox(
                       width: 12,
                       height: 12,
                       child: CircularProgressIndicator(
@@ -87,7 +87,7 @@ class _ProfilPageState extends State<ProfilPage> {
     Future<void> showLogoutDialog() async {
       return showDialog(
         context: context,
-        builder: (BuildContext context) => Container(
+        builder: (BuildContext context) => SizedBox(
           width: MediaQuery.of(context).size.width - (2 * defaultMargin),
           child: AlertDialog(
             backgroundColor: backgroundColorInput,
@@ -97,7 +97,7 @@ class _ProfilPageState extends State<ProfilPage> {
             content: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     width: 300,
                     child: Icon(
                       Icons.logout,
@@ -124,7 +124,7 @@ class _ProfilPageState extends State<ProfilPage> {
                       const SizedBox(
                         width: 12,
                       ),
-                      Container(
+                      SizedBox(
                         width: 100,
                         height: 44,
                         child: TextButton(

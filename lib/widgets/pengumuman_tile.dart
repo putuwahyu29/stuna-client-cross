@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 
 class PengumumanTile extends StatelessWidget {
   final PengumumanModel pengumuman;
-  PengumumanTile(this.pengumuman);
+  const PengumumanTile(this.pengumuman, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class PengumumanTile extends StatelessWidget {
                   height: 6,
                 ),
                 Text(
-                  "\Diperbarui pada ${DateFormat('dd-MM-yyyy').format(pengumuman.updatedAt).toString()}",
+                  "Diperbarui pada ${DateFormat('dd-MM-yyyy').format(pengumuman.updatedAt).toString()}",
                   style: primaryTextStyle.copyWith(
                     fontSize: 12,
                     fontWeight: medium,
