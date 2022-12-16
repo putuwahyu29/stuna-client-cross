@@ -73,7 +73,7 @@ class _SignInPageState extends State<MasukPage> {
 
     Widget usernameInput() {
       return Container(
-        margin: const EdgeInsets.only(top: 70),
+        margin: const EdgeInsets.only(top: 80),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

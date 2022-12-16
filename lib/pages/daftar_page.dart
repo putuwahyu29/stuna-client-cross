@@ -84,7 +84,7 @@ class _SignUpPageState extends State<DaftarPage> {
 
     Widget nameInput() {
       return Container(
-        margin: const EdgeInsets.only(top: 50),
+        margin: const EdgeInsets.only(top: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

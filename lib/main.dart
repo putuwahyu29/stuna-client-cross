@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => BerbintangProvider(),
         ),
-        ChangeNotifierProvider(
+      ChangeNotifierProvider(
           create: (context) => PageProvider(),
         ),
       ],

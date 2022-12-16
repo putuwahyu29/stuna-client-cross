@@ -102,9 +102,9 @@ class BerandaPage extends StatelessWidget {
                 Center(
                   child: Container(
                     child: Text(
-                      'Tidak ada pengumuman yang tersedia',
+                      'Tidak ada pengumuman',
                       style: primaryTextStyle.copyWith(
-                        fontSize: 18,
+                        fontSize: 17,
                         fontWeight: bold,
                       ),
                     ),

@@ -287,21 +287,41 @@ class EditProfilPage extends StatelessWidget {
       );
     }
 
+    // buat widget untuk input kelas dengan dropdown
+   
+
+
     Widget content() {
-      return Container(
-        width: double.infinity,
+      return SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         padding: EdgeInsets.symmetric(
           horizontal: defaultMargin,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Container(
+              width: 100,
+              height: 100,
+              margin: EdgeInsets.only(top: defaultMargin),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: NetworkImage(
+                      user.profilePhotoUrl,
+                    )),
+              ),
+            ),
             nameInput(),
             namaPanggilanInput(),
             emailInput(),
             alamatInput(),
             noHpInput(),
             nimInput(),
+            SizedBox(
+              height: 400,
+            ),
           ],
         ),
       );

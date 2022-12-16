@@ -3,6 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:stuna/models/user_model.dart';
 import 'package:stuna/providers/auth_provider.dart';
 import 'package:stuna/theme.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ProfilPage extends StatefulWidget {
   @override
@@ -23,14 +26,7 @@ class _ProfilPageState extends State<ProfilPage> {
       });
 
       if (await authProvider.logout(user.token!)) {
-        Navigator.pushNamedAndRemoveUntil(context, '/masuk', (route) => false);
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: infoColor,
-            content: const Text(
-              'Berhasil Keluar!',
-              textAlign: TextAlign.center,
-            )));
-
+        SystemNavigator.pop();
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: alertColor,
@@ -112,7 +108,7 @@ class _ProfilPageState extends State<ProfilPage> {
                     height: 12,
                   ),
                   Text(
-                    'Apakah Anda Yakin Untuk Keluar?',
+                    'Apakah Anda Yakin Untuk Keluar Akun dan Aplikasi?',
                     style: primaryTextStyle.copyWith(
                       fontSize: 18,
                       fontWeight: semiBold,
