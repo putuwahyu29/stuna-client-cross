@@ -51,7 +51,6 @@ class AuthService {
       UserModel user = UserModel.fromJson(data['user']);
       var token = user.token = 'Bearer${data['accessToken']}';
       var kelasId = user.kelasId;
-      print('auth service kelas id: $kelasId');
       final prefs = await SharedPreferences.getInstance();
       prefs.setString('username', username!);
       prefs.setString('password', password!);
