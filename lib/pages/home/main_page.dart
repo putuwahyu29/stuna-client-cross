@@ -97,7 +97,7 @@ class _MainPageState extends State<MainPage> {
         case 1:
           return const BerbintangPage();
         case 2:
-          return ProfilPage();
+          return const ProfilPage();
         default:
           return const BerandaPage();
       }
