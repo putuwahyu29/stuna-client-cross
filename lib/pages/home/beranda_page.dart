@@ -49,7 +49,7 @@ class BerandaPage extends StatelessWidget {
             ),
             GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, '/edit-profil');
+                  Navigator.pushNamed(context, '/lihat-profil');
                 },
                 child: Container(
                   width: 54,

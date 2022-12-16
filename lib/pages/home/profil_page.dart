@@ -4,6 +4,7 @@ import 'package:stuna/models/user_model.dart';
 import 'package:stuna/providers/auth_provider.dart';
 import 'package:stuna/theme.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfilPage extends StatefulWidget {
   const ProfilPage({super.key});
@@ -252,11 +253,26 @@ class _ProfilPageState extends State<ProfilPage> {
             ),
             GestureDetector(
               onTap: () {
+                Navigator.pushNamed(context, '/lihat-profil');
+              },
+              child: menuItem('Lihat Profil'),
+            ),
+            GestureDetector(
+              onTap: () {
                 Navigator.pushNamed(context, '/edit-profil');
               },
               child: menuItem('Ubah Profil'),
             ),
-            menuItem('Bantuan'),
+            // buat menu untuk membuka link pada external browser dengan package url_launcher
+            GestureDetector(
+              onTap: () async {
+                final Uri url = Uri.parse('https://wa.me/6281917803898');
+                if (!await launchUrl(url)) {
+                  throw 'Could not launch $url';
+                }
+              },
+              child: menuItem('Bantuan'),
+            ),
             const SizedBox(
               height: 30,
             ),
@@ -267,9 +283,25 @@ class _ProfilPageState extends State<ProfilPage> {
                 fontWeight: semiBold,
               ),
             ),
-            menuItem('Kebijakan & Privasi'),
-            menuItem('Ketentuan Layanan'),
-            menuItem('Nilai Aplikasi'),
+            GestureDetector(
+              onTap: () async {
+                final Uri url = Uri.parse('https://agus-stuna.vercel.app');
+                if (!await launchUrl(url)) {
+                  throw 'Could not launch $url';
+                }
+              },
+              child: menuItem('Stuna Web'),
+            ),
+            GestureDetector(
+              onTap: () async {
+                final Uri url =
+                    Uri.parse('https://222011460.student.stis.ac.id');
+                if (!await launchUrl(url)) {
+                  throw 'Could not launch $url';
+                }
+              },
+              child: menuItem('Stuna Api'),
+            ),
           ],
         ),
       ));

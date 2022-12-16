@@ -1,0 +1,316 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:stuna/models/user_model.dart';
+import 'package:stuna/providers/auth_provider.dart';
+import 'package:stuna/providers/kelas_provider.dart';
+import 'package:stuna/theme.dart';
+
+class LihatProfilPage extends StatelessWidget {
+  const LihatProfilPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+    KelasProvider kelasProvider = Provider.of<KelasProvider>(context);
+    int valueDropdown;
+    if (user.kelasId == null) {
+      valueDropdown = 0;
+    } else {
+      valueDropdown = int.parse(user.kelasId.toString());
+    }
+    TextEditingController usernameController =
+        TextEditingController(text: user.username);
+
+    TextEditingController nameController =
+        TextEditingController(text: user.fullName);
+
+    TextEditingController namaPanggilanController =
+        TextEditingController(text: user.namaPanggilan);
+
+    TextEditingController emailController =
+        TextEditingController(text: user.email);
+
+    TextEditingController alamatController =
+        TextEditingController(text: user.alamat);
+
+    TextEditingController noHpController =
+        TextEditingController(text: user.noHp);
+
+    TextEditingController nimController = TextEditingController(text: user.nim);
+
+    String kelasIdController = user.kelasId.toString();
+
+    header() {
+      return AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: backgroundColorHeaderAndNav,
+        elevation: 0,
+        centerTitle: true,
+        title: const Text(
+          'Lihat Profil',
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.edit,
+              color: whiteTextColor,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/edit-profil');
+            },
+          )
+        ],
+      );
+    }
+
+    Widget username() {
+      return Container(
+        margin: EdgeInsets.only(top: defaultMargin),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'Nama Pengguna',
+            style: secondaryTextStyle.copyWith(
+              fontSize: 12,
+            ),
+          ),
+          TextFormField(
+            style: primaryTextStyle,
+            controller: usernameController,
+            decoration: InputDecoration(
+                enabled: false,
+                hintText: 'Nama Pengguna Anda',
+                hintStyle: secondaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: secondaryColor),
+                )),
+          )
+        ]),
+      );
+    }
+
+    Widget nameInput() {
+      return Container(
+        margin: EdgeInsets.only(top: defaultMargin),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'Nama Lengkap',
+            style: secondaryTextStyle.copyWith(
+              fontSize: 12,
+            ),
+          ),
+          TextFormField(
+            style: primaryTextStyle,
+            controller: nameController,
+            decoration: InputDecoration(
+                enabled: false,
+                hintText: 'Nama Lengkap Anda',
+                hintStyle: secondaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: secondaryColor),
+                )),
+          )
+        ]),
+      );
+    }
+
+    Widget namaPanggilanInput() {
+      return Container(
+        margin: EdgeInsets.only(top: defaultMargin),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'Nama Panggilan',
+            style: secondaryTextStyle.copyWith(
+              fontSize: 12,
+            ),
+          ),
+          TextFormField(
+            style: primaryTextStyle,
+            controller: namaPanggilanController,
+            decoration: InputDecoration(
+                enabled: false,
+                hintText: 'Nama Panggilan Anda',
+                hintStyle: secondaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: secondaryColor),
+                )),
+          )
+        ]),
+      );
+    }
+
+    Widget emailInput() {
+      return Container(
+        margin: EdgeInsets.only(top: defaultMargin),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'Alamat Email',
+            style: secondaryTextStyle.copyWith(
+              fontSize: 12,
+            ),
+          ),
+          TextFormField(
+            style: primaryTextStyle,
+            controller: emailController,
+            decoration: InputDecoration(
+                enabled: false,
+                hintText: 'Alamat Email Anda',
+                hintStyle: secondaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: secondaryColor),
+                )),
+          )
+        ]),
+      );
+    }
+
+    Widget alamatInput() {
+      return Container(
+        margin: EdgeInsets.only(top: defaultMargin),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'Alamat Kos',
+            style: secondaryTextStyle.copyWith(
+              fontSize: 12,
+            ),
+          ),
+          TextFormField(
+            style: primaryTextStyle,
+            controller: alamatController,
+            decoration: InputDecoration(
+                enabled: false,
+                hintText: 'Alamat Kos Anda',
+                hintStyle: secondaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: secondaryColor),
+                )),
+          )
+        ]),
+      );
+    }
+
+    Widget noHpInput() {
+      return Container(
+        margin: EdgeInsets.only(top: defaultMargin),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'No Handphone',
+            style: secondaryTextStyle.copyWith(
+              fontSize: 12,
+            ),
+          ),
+          TextFormField(
+            style: primaryTextStyle,
+            controller: noHpController,
+            decoration: InputDecoration(
+                enabled: false,
+                hintText: 'No Handphone Anda',
+                hintStyle: secondaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: secondaryColor),
+                )),
+          )
+        ]),
+      );
+    }
+
+    Widget nimInput() {
+      return Container(
+        margin: EdgeInsets.only(top: defaultMargin),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'NIM',
+            style: secondaryTextStyle.copyWith(
+              fontSize: 12,
+            ),
+          ),
+          TextFormField(
+            style: primaryTextStyle,
+            controller: nimController,
+            decoration: InputDecoration(
+                enabled: false,
+                hintText: 'NIM Anda',
+                hintStyle: secondaryTextStyle,
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: secondaryColor),
+                )),
+          )
+        ]),
+      );
+    }
+
+    Widget kelasInput() {
+      return Container(
+        margin: EdgeInsets.only(top: defaultMargin),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'Kelas',
+            style: secondaryTextStyle.copyWith(
+              fontSize: 12,
+            ),
+          ),
+          DropdownButtonFormField(
+            onChanged: null,
+            value: valueDropdown,
+            items: kelasProvider.kelas.map((kelas) {
+              return DropdownMenuItem(
+                value: kelas.id,
+                child: Text(kelas.namaKelas),
+              );
+            }).toList(),
+          ),
+        ]),
+      );
+    }
+
+    Widget content() {
+      return SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        padding: EdgeInsets.symmetric(
+          horizontal: defaultMargin,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 100,
+              height: 100,
+              margin: EdgeInsets.only(top: defaultMargin),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: NetworkImage(
+                      user.profilePhotoUrl,
+                    )),
+              ),
+            ),
+            username(),
+            nameInput(),
+            namaPanggilanInput(),
+            emailInput(),
+            alamatInput(),
+            noHpInput(),
+            nimInput(),
+            kelasInput(),
+            const SizedBox(
+              height: 300,
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Scaffold(
+      backgroundColor: backgroundColorFull,
+      appBar: header(),
+      body: content(),
+      resizeToAvoidBottomInset: false,
+    );
+  }
+}

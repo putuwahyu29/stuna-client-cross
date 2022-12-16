@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:stuna/pages/lihat_profil_page.dart';
 import 'package:stuna/pages/edit_profil_page.dart';
 import 'package:stuna/pages/home/main_page.dart';
 import 'package:stuna/pages/masuk_page.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => BerbintangProvider(),
         ),
-      ChangeNotifierProvider(
+        ChangeNotifierProvider(
           create: (context) => PageProvider(),
         ),
       ],
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
           '/daftar': (context) => const DaftarPage(),
           '/beranda': (context) => const MainPage(),
           '/edit-profil': (context) => const EditProfilPage(),
+          '/lihat-profil': (context) => const LihatProfilPage(),
         },
       ),
     );
